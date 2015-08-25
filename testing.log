@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.7.21)  25 AUG 2015 12:01
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.7.21)  25 AUG 2015 13:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -101,18 +101,18 @@ Package ifvtex Info: VTeX not detected.
 (./testing.aux)
 \openout1 = `testing.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -149,44 +149,62 @@ LaTeX Font Info:    ... okay on input line 7.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 
-Overfull \hbox (12.0pt too wide) in alignment at lines 8--11
- [] [] [] [] [] [] [] 
+Overfull \hbox (12.0pt too wide) in alignment at lines 32--33
+ [] [] [] [] [] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in alignment at lines 11--15
- [] [] [] [] [] [] [] 
+Overfull \hbox (12.0pt too wide) in alignment at lines 33--37
+ [] [] [] [] [] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in alignment at lines 15--18
- [] [] [] [] [] [] [] 
+Overfull \hbox (12.0pt too wide) in alignment at lines 37--40
+ [] [] [] [] [] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in alignment at lines 18--34
- [] [] [] [] [] [] [] 
+Overfull \hbox (12.0pt too wide) in alignment at lines 40--76
+ [] [] [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 76
+ []
+
+
+Overfull \hbox (12.0pt too wide) in alignment at lines 76--108
+ [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in alignment at lines 108--140
+ [] [] [] [] [] 
  []
 
 [1
 
 {/usr/local/texlive/2010/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-(./testing.aux) ) 
+Overfull \hbox (12.0pt too wide) in alignment at lines 140--171
+ [] [] [] [] [] 
+ []
+
+[2] [3] (./testing.aux) ) 
 Here is how much of TeX's memory you used:
- 862 strings out of 493747
- 11564 string characters out of 3143546
- 72761 words of memory out of 3000000
- 4217 multiletter control sequences out of 15000+200000
+ 864 strings out of 493747
+ 11592 string characters out of 3143546
+ 88813 words of memory out of 3000000
+ 4219 multiletter control sequences out of 15000+200000
  4248 words of font info for 16 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 23i,5n,28p,434b,177s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmbx10.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmr10.pfb>
-Output written on testing.pdf (1 page, 31848 bytes).
+ 23i,5n,28p,434b,202s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/local/texlive/2010/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr10.pfb>
+Output written on testing.pdf (3 pages, 33586 bytes).
 PDF statistics:
- 16 PDF objects out of 1000 (max. 8388607)
- 10 compressed objects within 1 object stream
+ 22 PDF objects out of 1000 (max. 8388607)
+ 14 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
