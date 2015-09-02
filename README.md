@@ -1,6 +1,6 @@
 # fieldmove-notes-merger
 
-This repository contains a Jupyter notebook **combine_notes.ipynb** (developed using a Python 3 kernel) that merges and sorts .csv files created by Fieldmove, discards unnecessary fields, then outputs the result to a presentable LaTeX document.
+This repository contains a Jupyter notebook **combine_notes.ipynb** (developed using a Python 3 kernel) that merges and sorts .csv files created by the iOS app Fieldmove Clino, discards unnecessary fields, then outputs the result to a presentable LaTeX document.
 
 Outputs:
 * **all_notes.csv**
