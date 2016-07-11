@@ -7,7 +7,7 @@
 
 # print a welcome message
 print('')
-print('Welcome to fieldmove-notes-merger.')
+print('WELCOME TO FIELDMOVE-NOTES-MERGER.')
 print('')
 print('Follow the prompts:')
 print('')
@@ -19,7 +19,7 @@ from dateutil.parser import parse
 from numpy import zeros
 
 # prompt user for directory path
-print('USER INPUT REQURED:')
+print('> USER INPUT REQURED:')
 folder_path = input('Enter the path to the .fm folder exported by Fieldmove Clino (e.g. /Users/yuempark/Documents/Berkeley/Research_China/FieldMove/project1.fm): ')
 print('')
 
@@ -88,7 +88,7 @@ else:
 filtered_notes.to_csv(os.path.join(folder_path,r'all_notes_filtered.csv'), index=False)
 
 # notify user of saved file
-print('all_notes filtered and saved to all_notes_filtered.csv.')
+print('All notes filtered and saved to all_notes_filtered.csv.')
 print('')
 
 # now convert notes to a LaTeX format
@@ -115,7 +115,7 @@ frontmatter = r'\documentclass[11pt]{article}' + '\n' +\
               r'\geometry{hmargin={0.75in,0.75in},vmargin={1in,1in}}' + '\n'
 
 # prompt user for a title for the notes:
-print('USER INPUT REQURED:')
+print('> USER INPUT REQURED:')
 titleIn = input('Enter the title of your notes: ')
 authorIn = input('Enter your name: ')
 print('')
@@ -213,6 +213,7 @@ body = body.replace('%',r'\%')
 body = body.replace('<',r'$<$')
 body = body.replace('>',r'$>$')
 body = body.replace('~',r'\textasciitilde')
+body = body.replace('#',r'\#')
 
 # combine all the strings, and prepare for output into a .tex file:
 toLatex = frontmatter + header + title + start + body + end
@@ -222,5 +223,5 @@ afile = open(os.path.join(folder_path,r'latexoutput.tex'), 'wt')
 afile.write(toLatex)
 
 # print a final message to compile
-print('Open latexoutput.tex with your favourite .tex editor, and compile! latexoutput.pdf is the final product.')
+print('Open latexoutput.tex with your favourite .tex editor and compile! latexoutput.pdf is the final product.')
 print('')
