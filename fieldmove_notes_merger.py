@@ -5,6 +5,13 @@
 #   - filters the dataframe to only include data fields that are particularly relevant
 #   - exports this filtered dataframe as a LaTeX table
 
+# print a welcome message
+print('')
+print('Welcome to fieldmove-notes-merger.')
+print('')
+print('Follow the prompts:')
+print('')
+
 # import necessary modules
 import os
 import pandas as pd
@@ -12,7 +19,9 @@ from dateutil.parser import parse
 from numpy import zeros
 
 # prompt user for directory path
+print('USER INPUT REQURED:')
 folder_path = input('Enter the path to the .fm folder exported by Fieldmove Clino (e.g. /Users/yuempark/Documents/Berkeley/Research_China/FieldMove/project1.fm): ')
+print('')
 
 # read in the data
 image = pd.read_csv(folder_path + '/image.csv')
@@ -25,6 +34,7 @@ print('image.csv imported with ' + str(image.shape[0]) + ' entries.')
 print('note.csv imported with ' + str(note.shape[0]) + ' entries.')
 print('plane.csv imported with ' + str(plane.shape[0]) + ' entries.')
 print('line.csv imported with ' + str(line.shape[0]) + ' entries.')
+print('')
 
 # concatenate and sort
 all_notes = pd.concat((image, note, plane, line))
@@ -37,6 +47,7 @@ all_notes.to_csv(os.path.join(folder_path,r'all_notes.csv'),index=False)
 
 # notify user of saved file
 print('All notes concatenated and saved to all_notes.csv.')
+print('')
 
 # select columns that we want in our final LaTeX document
 if ' localityName' in all_notes.columns:
@@ -78,6 +89,7 @@ filtered_notes.to_csv(os.path.join(folder_path,r'all_notes_filtered.csv'), index
 
 # notify user of saved file
 print('all_notes filtered and saved to all_notes_filtered.csv.')
+print('')
 
 # now convert notes to a LaTeX format
 
@@ -103,8 +115,10 @@ frontmatter = r'\documentclass[11pt]{article}' + '\n' +\
               r'\geometry{hmargin={0.75in,0.75in},vmargin={1in,1in}}' + '\n'
 
 # prompt user for a title for the notes:
+print('USER INPUT REQURED:')
 titleIn = input('Enter the title of your notes: ')
 authorIn = input('Enter your name: ')
+print('')
 title = r'\title{Fieldmove Notes\\' + titleIn + r'}' + '\n' +\
         r'\author{' + authorIn + r'}' + '\n'
 
@@ -208,4 +222,5 @@ afile = open(os.path.join(folder_path,r'latexoutput.tex'), 'wt')
 afile.write(toLatex)
 
 # print a final message to compile
-print('ACTION REQUIRED: open latexoutput.tex with your favourite .tex editor, and compile! latexoutput.pdf is the final product.')
+print('Open latexoutput.tex with your favourite .tex editor, and compile! latexoutput.pdf is the final product.')
+print('')
