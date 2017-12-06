@@ -185,11 +185,11 @@ for i in range(filtered_notes.shape[0]-1):
         temp = filtered_notes[' image name'][i].split('_') #special character
         # some images have weird names - make sure the full name is included
         temp_entry = temp[0]
-        for i in range(1, len(temp)):
-            temp_entry += r'\_' + temp[i]
+        for j in range(1, len(temp)):
+            temp_entry += r'\_' + temp[j]
         entry += bold('image:') + ' ' + temp_entry + r' & '
         entry += bold('heading:') + ' ' + str(round(filtered_notes[' heading'][i],1)) + r' & '
-        entry += r' & & '
+        entry += r'& & '
         entry += '\includegraphics[width=2 in]{' + imageIn + '/' +  filtered_notes[' image name'][i].strip() + '}'
         entry += r' \\' + '\n'
     except:
