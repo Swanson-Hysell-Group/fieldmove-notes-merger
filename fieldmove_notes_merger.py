@@ -126,7 +126,7 @@ title = r'\title{' + titleIn + r' Fieldmove Notes' + r'}' + '\n' +\
         r'\date{\vspace{-5ex}}' + '\n'
 
 # prompt user for the directory of the images:
-imageIn = input('Enter the path to your images (e.g. /Users/yuempark/Documents/Berkeley/Research_China/FieldMove/project1.fm/image_thumbnails): ')
+imageIn = input('Enter the folder name that contains your images (e.g. image_thumbnails): ')
 print('')
 
 # create a header for each page:
@@ -190,7 +190,7 @@ for i in range(filtered_notes.shape[0]-1):
         entry += bold('image:') + ' ' + temp_entry + r' & '
         entry += bold('heading:') + ' ' + str(round(filtered_notes[' heading'][i],1)) + r' & '
         entry += r' & & '
-        entry += '\includegraphics[width=2 in]{' + imageIn + '/' +  filtered_notes[' image name'][i] + '}'
+        entry += '\includegraphics[width=2 in]{' + imageIn + '/' +  filtered_notes[' image name'][i].strip() + '}'
         entry += r' \\' + '\n'
     except:
         pass
