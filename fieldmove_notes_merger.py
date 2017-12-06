@@ -142,7 +142,7 @@ start = r'\begin{document}' + '\n' +\
         r'Summary of field notes made on an iPad using the Fieldmove app.' +\
         r' All coordinates are in WGS84.' +\
         r' Plane dip directions and line azimuths are corrected for local magnetic declination.' + '\n' +\
-        r'\begin{longtable}{llllr}' + '\n' +\
+        r'\begin{longtable}{lllr}' + '\n' +\
         r'\endhead' + '\n' +\
         r'\endfoot' + '\n' +\
         r'\endlastfoot' + '\n'
@@ -164,11 +164,10 @@ for i in range(filtered_notes.shape[0]-1):
     entry = ''
 
     entry += r'\hline' + '\n'
-    entry += r'$_{' + str(i+1) + r'}$&&&&\\' + '\n'
+    entry += r'$_{' + str(i+1) + r'}$&&&\\' + '\n'
     entry += bold('time:') + ' ' + str(filtered_notes['time'][i]) + r' & '
     entry += bold('lat:') + ' ' + str(filtered_notes[' latitude'][i]) + r' & '
     entry += bold('lon:') + ' ' + str(filtered_notes[' longitude'][i]) + r' & '
-    entry += r' & '
 
     # if we have locality data, include it
     if filtered_notes[' localityName'][i] != 0:
@@ -177,7 +176,7 @@ for i in range(filtered_notes.shape[0]-1):
         entry += r'\\' + '\n'
 
     # always include notes
-    entry += r'\multicolumn{5}{p{6.5 in}}{'
+    entry += r'\multicolumn{4}{p{6.5 in}}{'
     entry += bold('note:') + ' ' + str(filtered_notes[' notes'][i]) + r'} \\' + '\n'
 
     # if we have photos, include it
@@ -189,7 +188,7 @@ for i in range(filtered_notes.shape[0]-1):
             temp_entry += r'\_' + temp[j]
         entry += bold('image:') + ' ' + temp_entry + r' & '
         entry += bold('heading:') + ' ' + str(round(filtered_notes[' heading'][i],1)) + r' & '
-        entry += r'& & '
+        entry += r'& '
         entry += '\includegraphics[width=2 in]{' + imageIn + '/' +  filtered_notes[' image name'][i].strip() + '}'
         entry += r' \\' + '\n'
     except:
@@ -200,7 +199,7 @@ for i in range(filtered_notes.shape[0]-1):
         pass
     else:
         entry += bold('fm:') + ' ' + str(filtered_notes[' rockUnit'][i]) + r' & '
-        entry += r'& & & \\' + '\n'
+        entry += r'& & \\' + '\n'
 
     # if we have plane data, include it
     if str(filtered_notes[' dip'][i]) == 'nan':
@@ -209,9 +208,9 @@ for i in range(filtered_notes.shape[0]-1):
         entry += bold('plane:') + ' ' + str(filtered_notes[' planeType'][i]) + r' & '
         entry += bold('dip:') + ' ' + str(round(filtered_notes[' dip'][i],1)) + r' & '
         entry += bold('dip dir.:') + ' ' + str(round(filtered_notes[' dipAzimuth'][i],1)) + r' & '
-        entry += r'& \\' + '\n'
+        entry += r'\\' + '\n'
         entry += bold('mag. dec.:') + ' ' + str(round(filtered_notes[' declination'][i],1)) + r' & '
-        entry += r'& & & \\' + '\n'
+        entry += r'& & \\' + '\n'
 
     # if we have line data, include it
     if str(filtered_notes[' plunge'][i]) == 'nan':
@@ -220,7 +219,7 @@ for i in range(filtered_notes.shape[0]-1):
         entry += bold('line:') + ' ' + str(filtered_notes[' lineationType'][i]) + r' & '
         entry += bold('plunge:') + ' ' + str(round(filtered_notes[' plunge'][i],1)) + r' & '
         entry += bold('azimuth:') + ' ' + str(round(filtered_notes[' plungeAzimuth'][i],1)) + r' & '
-        entry += bold('mag. dec.:') + ' ' + str(round(filtered_notes[' declination'][i],1)) + r' & '
+        entry += bold('mag. dec.:') + ' ' + str(round(filtered_notes[' declination'][i],1))
         entry += r'\\' + '\n'
 
     body += entry
