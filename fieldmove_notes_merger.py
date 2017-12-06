@@ -121,6 +121,8 @@ print('> USER INPUT REQURED:')
 titleIn = input('Enter the year and field area: ')
 authorIn = input('Enter your name: ')
 print('')
+
+# get rid of the date of compiling
 title = r'\title{' + titleIn + r' Fieldmove Notes' + r'}' + '\n' +\
         r'\author{' + authorIn + r'}' + '\n' +\
         r'\date{\vspace{-5ex}}' + '\n'
@@ -136,12 +138,12 @@ header = r'\pagestyle{fancy}' + '\n' +\
          r'\cfoot{}' + '\n' +\
          r'\renewcommand{\headrulewidth}{0.4pt}' + '\n'
 
-# some more necessary LaTeX commands before starting the table:
+# some more necessary LaTeX commands, as well as some general text, before starting the table:
 start = r'\begin{document}' + '\n' +\
         r'\maketitle' + '\n' +\
-        r'Summary of field notes made on an iPad using the Fieldmove app within image.csv, note.csv, plane.csv, and line.csv.' +\
-        r' All coordinates are in WGS84.' +\
-        r' Plane dip directions and line azimuths are corrected for local magnetic declination.' + '\n' +\
+        r'Summary of field notes made on an iPad using the Fieldmove app within image.csv, note.csv, plane.csv, and line.csv. ' +\
+        r'All coordinates are in WGS84. ' +\
+        r'Plane dip directions and line azimuths are corrected for local magnetic declination. ' + '\n' +\
         r'\begin{longtable}{lllr}' + '\n' +\
         r'\endhead' + '\n' +\
         r'\endfoot' + '\n' +\
@@ -181,7 +183,7 @@ for i in range(filtered_notes.shape[0]-1):
 
     # if we have photos, include it
     try:
-        temp = filtered_notes[' image name'][i].split('_') #special character
+        temp = filtered_notes[' image name'][i].split('_') #special character needs escaping
         # some images have weird names - make sure the full name is included
         temp_entry = temp[0]
         for j in range(1, len(temp)):
