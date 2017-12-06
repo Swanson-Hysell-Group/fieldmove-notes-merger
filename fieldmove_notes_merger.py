@@ -64,7 +64,8 @@ if ' localityName' in all_notes.columns:
                                 ' lineationType',
                                 ' plungeAzimuth',
                                 ' plunge',
-                                ' unitId']]
+                                ' rockUnit',
+                                ' declination']]
 
 else:
     fill = zeros((all_notes.shape[0],1))
@@ -82,7 +83,8 @@ else:
                                 ' lineationType',
                                 ' plungeAzimuth',
                                 ' plunge',
-                                ' unitId']]
+                                ' rockUnit',
+                                ' declination']]
 
 # output to 'all_notes_filtered.csv':
 filtered_notes.to_csv(os.path.join(folder_path,r'all_notes_filtered.csv'), index=False)
@@ -119,8 +121,9 @@ print('> USER INPUT REQURED:')
 titleIn = input('Enter the title of your notes: ')
 authorIn = input('Enter your name: ')
 print('')
-title = r'\title{Fieldmove Notes\\' + titleIn + r'}' + '\n' +\
-        r'\author{' + authorIn + r'}' + '\n'
+title = r'\title{' + titleIn + r' Fieldmove Notes' + r'}' + '\n' +\
+        r'\author{' + authorIn + r'}' + '\n' +\
+        r'\date{\vspace{-5ex}}' + '\n'
 
 # create a header for each page:
 header = r'\pagestyle{fancy}' + '\n' +\
@@ -132,6 +135,9 @@ header = r'\pagestyle{fancy}' + '\n' +\
 # some more necessary LaTeX commands before starting the table:
 start = r'\begin{document}' + '\n' +\
         r'\maketitle' + '\n' +\
+        r'Summary of field notes made on an iPad using the Fieldmove app.' +\
+        r' All coordinates are in WGS84.' +\
+        r' Plane dip directions and line azimuths are corrected for local magnetic declination.' + '\n' +\
         r'\begin{longtable}{llllr}' + '\n' +\
         r'\endhead' + '\n' +\
         r'\endfoot' + '\n' +\
@@ -180,10 +186,10 @@ for i in range(filtered_notes.shape[0]-1):
         pass
 
     # if we have a formation name, include it
-    if str(filtered_notes[' unitId'][i]) == 'nan':
+    if str(filtered_notes[' rockUnit'][i]) == 'nan':
         pass
     else:
-        entry += bold('fm:') + ' ' + str(filtered_notes[' unitId'][i]) + r' & '
+        entry += bold('fm:') + ' ' + str(filtered_notes[' rockUnit'][i]) + r' & '
         entry += r'& & & \\' + '\n'
 
     # if we have plane data, include it
@@ -192,8 +198,9 @@ for i in range(filtered_notes.shape[0]-1):
     else:
         entry += bold('plane:') + ' ' + str(filtered_notes[' planeType'][i]) + r' & '
         entry += bold('dip:') + ' ' + str(round(filtered_notes[' dip'][i],1)) + r' & '
-        entry += bold('azimuth:') + ' ' + str(round(filtered_notes[' dipAzimuth'][i],1)) + r' & '
-        entry += r'& \\' + '\n'
+        entry += bold('dip dir.:') + ' ' + str(round(filtered_notes[' dipAzimuth'][i],1)) + r' & '
+        entry += bold('mag. dec.:') + ' ' + str(round(filtered_notes[' declination'][i],1)) + r' & '
+        entry += r'\\' + '\n'
 
     # if we have line data, include it
     if str(filtered_notes[' plunge'][i]) == 'nan':
@@ -202,7 +209,8 @@ for i in range(filtered_notes.shape[0]-1):
         entry += bold('line:') + ' ' + str(filtered_notes[' lineationType'][i]) + r' & '
         entry += bold('plunge:') + ' ' + str(round(filtered_notes[' plunge'][i],1)) + r' & '
         entry += bold('azimuth:') + ' ' + str(round(filtered_notes[' plungeAzimuth'][i],1)) + r' & '
-        entry += r'& \\' + '\n'
+        entry += bold('mag. dec.:') + ' ' + str(round(filtered_notes[' declination'][i],1)) + r' & '
+        entry += r'\\' + '\n'
 
     body += entry
 
