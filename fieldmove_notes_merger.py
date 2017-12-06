@@ -39,8 +39,8 @@ print('')
 # concatenate and sort
 all_notes = pd.concat((image, note, plane, line))
 all_notes['time'] = pd.to_datetime(all_notes[' timedate'])
-all_notes.sort_values(by='time',inplace='True')
-all_notes.reset_index(inplace='True')
+all_notes.sort_values(by='time',inplace=True)
+all_notes.reset_index(inplace=True)
 
 # output to 'all_notes.csv', without any filtering
 all_notes.to_csv(os.path.join(folder_path,r'all_notes.csv'),index=False)
