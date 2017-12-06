@@ -139,7 +139,7 @@ header = r'\pagestyle{fancy}' + '\n' +\
 # some more necessary LaTeX commands before starting the table:
 start = r'\begin{document}' + '\n' +\
         r'\maketitle' + '\n' +\
-        r'Summary of field notes made on an iPad using the Fieldmove app.' +\
+        r'Summary of field notes made on an iPad using the Fieldmove app within image.csv, note.csv, plane.csv, and line.csv.' +\
         r' All coordinates are in WGS84.' +\
         r' Plane dip directions and line azimuths are corrected for local magnetic declination.' + '\n' +\
         r'\begin{longtable}{lllr}' + '\n' +\
