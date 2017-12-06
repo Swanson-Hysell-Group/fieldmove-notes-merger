@@ -118,12 +118,16 @@ frontmatter = r'\documentclass[11pt]{article}' + '\n' +\
 
 # prompt user for a title for the notes:
 print('> USER INPUT REQURED:')
-titleIn = input('Enter the title of your notes: ')
+titleIn = input('Enter the year and field area: ')
 authorIn = input('Enter your name: ')
 print('')
 title = r'\title{' + titleIn + r' Fieldmove Notes' + r'}' + '\n' +\
         r'\author{' + authorIn + r'}' + '\n' +\
         r'\date{\vspace{-5ex}}' + '\n'
+
+# prompt user for the directory of the images:
+imageIn = input('Enter the path to your images (e.g. /Users/yuempark/Documents/Berkeley/Research_China/FieldMove/project1.fm/image_thumbnails): ')
+print('')
 
 # create a header for each page:
 header = r'\pagestyle{fancy}' + '\n' +\
@@ -164,7 +168,7 @@ for i in range(filtered_notes.shape[0]-1):
     entry += bold('time:') + ' ' + str(filtered_notes['time'][i]) + r' & '
     entry += bold('lat:') + ' ' + str(filtered_notes[' latitude'][i]) + r' & '
     entry += bold('lon:') + ' ' + str(filtered_notes[' longitude'][i]) + r' & '
-    entry += r'& '
+    entry += r' & '
 
     # if we have locality data, include it
     if filtered_notes[' localityName'][i] != 0:
@@ -179,9 +183,15 @@ for i in range(filtered_notes.shape[0]-1):
     # if we have photos, include it
     try:
         temp = filtered_notes[' image name'][i].split('_') #special character
-        entry += bold('image:') + ' ' + temp[0] + r'\_' + temp[1] + r' & '
+        # some images have weird names - make sure the full name is included
+        temp_entry = temp[0]
+        for i in range(1, len(temp)):
+            temp_entry += r'\_' + temp[i]
+        entry += bold('image:') + ' ' + temp_entry + r' & '
         entry += bold('heading:') + ' ' + str(round(filtered_notes[' heading'][i],1)) + r' & '
-        entry += r'& & \\' + '\n'
+        entry += r' & & '
+        entry += '\includegraphics[width=2 in]{' + imageIn + '/' +  filtered_notes[' image name'][i] + '}'
+        entry += r' \\' + '\n'
     except:
         pass
 
