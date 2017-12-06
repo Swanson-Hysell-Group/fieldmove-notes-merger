@@ -177,7 +177,7 @@ for i in range(filtered_notes.shape[0]-1):
         entry += r'\\' + '\n'
 
     # always include notes
-    entry += r'\multicolumn{5}{p{\linewidth}}{'
+    entry += r'\multicolumn{5}{p{6.5 in}}{'
     entry += bold('note:') + ' ' + str(filtered_notes[' notes'][i]) + r'} \\' + '\n'
 
     # if we have photos, include it
