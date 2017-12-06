@@ -209,8 +209,9 @@ for i in range(filtered_notes.shape[0]-1):
         entry += bold('plane:') + ' ' + str(filtered_notes[' planeType'][i]) + r' & '
         entry += bold('dip:') + ' ' + str(round(filtered_notes[' dip'][i],1)) + r' & '
         entry += bold('dip dir.:') + ' ' + str(round(filtered_notes[' dipAzimuth'][i],1)) + r' & '
+        entry += r'& \\' + '\n'
         entry += bold('mag. dec.:') + ' ' + str(round(filtered_notes[' declination'][i],1)) + r' & '
-        entry += r'\\' + '\n'
+        entry += r'& & & \\' + '\n'
 
     # if we have line data, include it
     if str(filtered_notes[' plunge'][i]) == 'nan':
