@@ -1,6 +1,6 @@
 # Fieldmove note summary code
 
-This repository contains a Python 3 script **fieldmove_notes_merger.py** that merges and sorts the image, plane, note and line .csv files created by the iOS app Fieldmove Clino, discards unnecessary fields, then outputs the result to a presentable LaTeX document that includes thumbnails of the .
+This repository contains a Python 3 script **fieldmove_notes_merger.py** that merges and sorts the image, plane, note and line .csv files created by the iOS app Fieldmove Clino, discards unnecessary fields, then outputs the result to a presentable LaTeX document that includes thumbnails of the photos.
 
 Requirements:
 * Python 3 and standard scientific Python modules
