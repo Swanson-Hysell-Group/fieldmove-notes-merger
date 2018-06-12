@@ -64,7 +64,7 @@ if ' localityName' in all_notes.columns:
                                 ' lineationType',
                                 ' plungeAzimuth',
                                 ' plunge',
-                                ' rockUnit',
+                                ' unitId',
                                 ' declination']]
 
 else:
@@ -83,7 +83,7 @@ else:
                                 ' lineationType',
                                 ' plungeAzimuth',
                                 ' plunge',
-                                ' rockUnit',
+                                ' unitId',
                                 ' declination']]
 
 # output to 'all_notes_filtered.csv':
@@ -197,10 +197,10 @@ for i in range(filtered_notes.shape[0]-1):
         pass
 
     # if we have a formation name, include it
-    if str(filtered_notes[' rockUnit'][i]) == 'nan':
+    if str(filtered_notes[' unitId'][i]) == 'nan':
         pass
     else:
-        entry += bold('fm:') + ' ' + str(filtered_notes[' rockUnit'][i]) + r' & '
+        entry += bold('fm:') + ' ' + str(filtered_notes[' unitId'][i]) + r' & '
         entry += r'& & \\' + '\n'
 
     # if we have plane data, include it
