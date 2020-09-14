@@ -23,6 +23,18 @@ print('> USER INPUT REQURED:')
 folder_path = input('Enter the path to the .fm folder exported by Fieldmove Clino (e.g. /Users/yuempark/Documents/Berkeley/Research_China/FieldMove/project1.fm): ')
 print('')
 
+print('> USER INPUT REQURED:')
+device = input('Enter the device used (choose between \'ipad\' and \'iphone\') ')
+print('The device used is: '+device)
+print('')
+
+assert device in ['ipad', 'iphone']
+
+if device == 'ipad':
+    rock_unit_label = ' rockUnit'
+elif device == 'iphone':
+    rock_unit_label = ' unitId'
+
 # read in the data
 image = pd.read_csv(folder_path + '/image.csv')
 note = pd.read_csv(folder_path + '/note.csv')
@@ -49,24 +61,22 @@ all_notes.to_csv(os.path.join(folder_path,r'all_notes.csv'),index=False)
 print('All notes concatenated and saved to all_notes.csv.')
 print('')
 
-# select columns that we want in our final LaTeX document
 if ' localityName' in all_notes.columns:
-    filtered_notes = all_notes[['time',
-                                ' latitude',
-                                ' longitude',
-                                ' localityName',
-                                ' notes',
-                                ' image name',
-                                ' heading',
-                                ' planeType',
-                                ' dipAzimuth',
-                                ' dip',
-                                ' lineationType',
-                                ' plungeAzimuth',
-                                ' plunge',
-                                ' rockUnit',
-                                ' declination']]
-
+     filtered_notes = all_notes[['time',
+                                 ' latitude',
+                                 ' longitude',
+                                 ' localityName',
+                                 ' notes',
+                                 ' image name',
+                                 ' heading',
+                                 ' planeType',
+                                 ' dipAzimuth',
+                                 ' dip',
+                                 ' lineationType',
+                                 ' plungeAzimuth',
+                                 ' plunge',
+                                 rock_unit_label,
+                                 ' declination']]
 else:
     fill = zeros((all_notes.shape[0],1))
     all_notes[' localityName'] = fill
@@ -83,9 +93,8 @@ else:
                                 ' lineationType',
                                 ' plungeAzimuth',
                                 ' plunge',
-                                ' rockUnit',
+                                rock_unit_label,
                                 ' declination']]
-
 # output to 'all_notes_filtered.csv':
 filtered_notes.to_csv(os.path.join(folder_path,r'all_notes_filtered.csv'), index=False)
 
@@ -196,11 +205,10 @@ for i in range(filtered_notes.shape[0]-1):
     except:
         pass
 
-    # if we have a formation name, include it
-    if str(filtered_notes[' rockUnit'][i]) == 'nan':
+    if str(filtered_notes[rock_unit_label][i]) == 'nan':
         pass
     else:
-        entry += bold('fm:') + ' ' + str(filtered_notes[' rockUnit'][i]) + r' & '
+        entry += bold('fm:') + ' ' + str(filtered_notes[rock_unit_label][i]) + r' & '
         entry += r'& & \\' + '\n'
 
     # if we have plane data, include it
