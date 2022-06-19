@@ -6,7 +6,7 @@ Requirements:
 * Python 3 and standard scientific Python modules
 
 Execution:
-* open Terminal
+* on a Mac open Terminal; on a PC you can get a command line interface using the Anaconda Powershell prompt which can be opened through the Anaconda Navigator
 * navigate to the directory in which **fieldmove_notes_merger.py** is saved
   * to do this type `cd [pathname]` in the Terminal prompt where `[pathname]` is the path to the folder
 * execute 'python fieldmove_notes_merger.py' in the Terminal prompt
