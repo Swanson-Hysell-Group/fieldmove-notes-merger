@@ -30,9 +30,9 @@ print('')
 
 assert device in ['ipad', 'iphone']
 
-if device == 'ipad':
+if device.lower() == 'ipad':
     rock_unit_label = ' rockUnit'
-elif device == 'iphone':
+elif device.lower() == 'iphone':
     rock_unit_label = ' unitId'
 
 # read in the data
