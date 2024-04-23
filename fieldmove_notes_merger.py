@@ -171,7 +171,7 @@ def bold(string):
 # note that certain special characters need special treatment, otherwise LaTeX will fail to compile.
 body = ''
 
-for i in range(filtered_notes.shape[0]-1):
+for i in range(filtered_notes.shape[0]):
     entry = ''
 
     entry += r'\hline' + '\n'
