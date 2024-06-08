@@ -76,7 +76,7 @@ if ' localityName' in all_notes.columns:
                                  ' plungeAzimuth',
                                  ' plunge',
                                  rock_unit_label,
-                                 ' declination']]
+                                 ' declination']].copy()
 else:
     fill = zeros((all_notes.shape[0],1))
     all_notes[' localityName'] = fill
@@ -94,7 +94,7 @@ else:
                                 ' plungeAzimuth',
                                 ' plunge',
                                 rock_unit_label,
-                                ' declination']]
+                                ' declination']].copy()
 # output to 'all_notes_filtered.csv':
 filtered_notes.to_csv(os.path.join(folder_path,r'all_notes_filtered.csv'), index=False)
 
@@ -166,6 +166,11 @@ end = r'\end{longtable}' + '\n' +\
 def bold(string):
     out = r'\textbf{' + string + '}'
     return out
+
+# replace special characters in notes
+filtered_notes[' notes'] = filtered_notes[' notes'].str.replace('&','\&').copy()
+filtered_notes[' notes'] = filtered_notes[' notes'].str.replace('$','\$', regex=False).copy()
+filtered_notes[' notes'] = filtered_notes[' notes'].str.replace('_','\_').copy()
 
 # generate the main body of the LaTeX code:
 # note that certain special characters need special treatment, otherwise LaTeX will fail to compile.
